@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 22
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+        androidTest {
+            setRoot('src/test')
+        }
+    }
+}
+
+dependencies {
+    repositories {
+        mavenCentral()
+    }
+
+    testCompile 'junit:junit:4.+'
+    compile fileTree(dir: 'libs', include: '*.jar')
+}
+

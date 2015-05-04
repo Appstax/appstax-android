@@ -1,0 +1,9 @@
+#!/usr/bin/env bash -eu
+# Remove IDE files
+
+cd "$(dirname "$0")"/..
+
+rm -rf .gradle
+rm -rf .Idea
+
+find . -name "*.iml" -type f -delete
