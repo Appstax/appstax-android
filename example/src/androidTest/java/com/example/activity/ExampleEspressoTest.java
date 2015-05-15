@@ -9,6 +9,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.text.StringContains.containsString;
 
 @LargeTest
 public class ExampleEspressoTest extends ActivityInstrumentationTestCase2<ExampleActivity> {
@@ -24,6 +25,6 @@ public class ExampleEspressoTest extends ActivityInstrumentationTestCase2<Exampl
     }
 
     public void testActivityShouldHaveText() throws InterruptedException {
-        onView(withId(R.id.text)).check(matches(withText("Hello Appstax!")));
+        onView(withId(R.id.text)).check(matches(withText(containsString("error"))));
     }
 }

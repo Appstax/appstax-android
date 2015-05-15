@@ -1,7 +1,9 @@
 package com.example.activity;
 
+import com.appstax.Appstax;
 import com.appstax.AppstaxObject;
-import com.appstax.android.Appstax;
+import com.appstax.android.AppstaxRequest;
+import com.appstax.android.AppstaxResponse;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +13,8 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
@@ -60,7 +64,11 @@ public class ExampleActivityTest {
     @Test
     public void testObjectSave() {
         AppstaxObject object = new AppstaxObject(COLLECTION_BLANK);
-        object.save();
+        AppstaxResponse<AppstaxObject> res = AppstaxRequest.save(object);
+
+        assertNull(res.getResult());
+        assertNotNull(res.getError());
+        assertTrue(res.getError().getMessage().length() > 0);
     }
 
 }
