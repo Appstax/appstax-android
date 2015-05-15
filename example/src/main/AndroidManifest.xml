@@ -4,12 +4,22 @@
           android:versionName="1"
           package="com.example">
 
-    <application android:name=".ExampleApplication" android:label="Appstax">
-        <activity android:name=".activity.ExampleActivity" android:label="Appstax" android:screenOrientation="portrait">
+    <application
+        android:name=".ExampleApplication"
+        android:label="Appstax"
+        android:icon="@mipmap/ic_launcher">
+
+        <activity
+            android:name=".activity.ExampleActivity"
+            android:label="Appstax"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
+
     </application>
 </manifest>
