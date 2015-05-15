@@ -1,5 +1,6 @@
 package com.example.activity;
 
+import com.appstax.AppstaxObject;
 import com.appstax.android.Appstax;
 
 import org.junit.Before;
@@ -16,13 +17,17 @@ import static org.junit.Assert.assertTrue;
 @Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
 public class ExampleActivityTest {
 
-    private static final String APP_KEY_1 = "YourAppKey";
+    private static final String APP_KEY_1 = "YourApiKey";
     private static final String APP_KEY_2 = "SomeAppKey";
-    private static final String API_URL_1 = "https://appstax.com/api/latest/";
+    private static final String API_URL_1 = com.appstax.Appstax.getApiUrl();
+
+    private static final String COLLECTION_COUNT = "CountCollection";
+    private static final String COLLECTION_BLANK = "BlankCollection";
 
     @Before
     public void before() {
         Appstax.setAppKey(APP_KEY_1);
+        Appstax.setApiUrl(API_URL_1);
     }
 
     @Test
@@ -40,6 +45,22 @@ public class ExampleActivityTest {
     @Test
     public void testApiUrl() {
         assertEquals(API_URL_1, Appstax.getApiUrl());
+    }
+
+    @Test
+    public void testObjectCreate() {
+        AppstaxObject object = new AppstaxObject(COLLECTION_COUNT);
+        object.put("title", "hello");
+        object.put("count", 42);
+        assertEquals(COLLECTION_COUNT, object.getCollection());
+        assertEquals("hello", object.get("title"));
+        assertEquals(42, object.get("count"));
+    }
+
+    @Test
+    public void testObjectSave() {
+        AppstaxObject object = new AppstaxObject(COLLECTION_BLANK);
+        object.save();
     }
 
 }
