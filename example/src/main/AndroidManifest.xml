@@ -4,6 +4,8 @@
           android:versionName="1"
           package="com.example">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ExampleApplication"
         android:label="Appstax"
