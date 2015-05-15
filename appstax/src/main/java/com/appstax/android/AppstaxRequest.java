@@ -3,7 +3,7 @@ package com.appstax.android;
 import android.os.AsyncTask;
 
 import com.appstax.AppstaxObject;
-import com.appstax.exceptions.AppstaxRequestException;
+import com.appstax.AppstaxException;
 
 public class AppstaxRequest {
 
@@ -20,7 +20,7 @@ public class AppstaxRequest {
         protected AppstaxResponse<AppstaxObject> doInBackground(AppstaxObject... objects) {
             try {
                 objects[0].save();
-            } catch (AppstaxRequestException e) {
+            } catch (AppstaxException e) {
                 return new AppstaxResponse<AppstaxObject>(e);
             }
             return new AppstaxResponse<AppstaxObject>(objects[0]);

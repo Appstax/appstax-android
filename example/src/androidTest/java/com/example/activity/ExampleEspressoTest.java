@@ -25,6 +25,6 @@ public class ExampleEspressoTest extends ActivityInstrumentationTestCase2<Exampl
     }
 
     public void testActivityShouldHaveText() throws InterruptedException {
-        onView(withId(R.id.text)).check(matches(withText(containsString("error"))));
+        onView(withId(R.id.text)).check(matches(withText(containsString("Not authorized"))));
     }
 }
