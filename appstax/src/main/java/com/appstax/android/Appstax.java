@@ -10,4 +10,12 @@ public abstract class Appstax {
         return com.appstax.Appstax.getAppKey();
     }
 
+    public static void setApiUrl(final String url) {
+        com.appstax.Appstax.setApiUrl(url);
+    }
+
+    public static String getApiUrl() {
+        return com.appstax.Appstax.getApiUrl();
+    }
+
 }

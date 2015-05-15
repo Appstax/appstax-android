@@ -18,6 +18,7 @@ public class ExampleActivityTest {
 
     private static final String APP_KEY_1 = "YourAppKey";
     private static final String APP_KEY_2 = "SomeAppKey";
+    private static final String API_URL_1 = "https://appstax.com/api/latest/";
 
     @Before
     public void before() {
@@ -30,10 +31,15 @@ public class ExampleActivityTest {
     }
 
     @Test
-    public void testAppstaxDependency() {
+    public void testAppKey() {
         assertEquals(APP_KEY_1, Appstax.getAppKey());
         Appstax.setAppKey(APP_KEY_2);
         assertEquals(APP_KEY_2, Appstax.getAppKey());
+    }
+
+    @Test
+    public void testApiUrl() {
+        assertEquals(API_URL_1, Appstax.getApiUrl());
     }
 
 }
