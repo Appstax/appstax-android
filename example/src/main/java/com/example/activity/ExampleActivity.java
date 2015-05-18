@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.appstax.Appstax;
 import com.appstax.AppstaxObject;
-import com.appstax.android.AppstaxRequest;
-import com.appstax.android.AppstaxResponse;
+import com.appstax.android.Request;
+import com.appstax.android.Response;
 import com.example.R;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class ExampleActivity extends ListActivity {
         Appstax.setApiUrl(API_URL);
 
         // Fetch list of objects.
-        AppstaxResponse<List<AppstaxObject>> res = AppstaxRequest.find(COLLECTION_NAME);
+        Response<List<AppstaxObject>> res = Request.find(COLLECTION_NAME);
 
         // Show error if any.
         if (res.getError() != null) {

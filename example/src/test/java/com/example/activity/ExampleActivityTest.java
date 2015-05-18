@@ -2,8 +2,8 @@ package com.example.activity;
 
 import com.appstax.Appstax;
 import com.appstax.AppstaxObject;
-import com.appstax.android.AppstaxRequest;
-import com.appstax.android.AppstaxResponse;
+import com.appstax.android.Request;
+import com.appstax.android.Response;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -64,7 +64,7 @@ public class ExampleActivityTest {
     @Test
     public void testObjectSave() {
         AppstaxObject object = new AppstaxObject(COLLECTION_BLANK);
-        AppstaxResponse<AppstaxObject> res = AppstaxRequest.save(object);
+        Response<AppstaxObject> res = Request.save(object);
 
         assertNull(res.getResult());
         assertNotNull(res.getError());

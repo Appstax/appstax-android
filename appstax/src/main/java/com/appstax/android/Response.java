@@ -1,20 +1,20 @@
 package com.appstax.android;
 
-public class AppstaxResponse<T> {
+public class Response<T> {
 
     private T result;
     private Exception error;
 
-    public AppstaxResponse() {
+    public Response() {
         super();
     }
 
-    public AppstaxResponse(T result) {
+    public Response(T result) {
         super();
         this.result = result;
     }
 
-    public AppstaxResponse(Exception error) {
+    public Response(Exception error) {
         super();
         this.error = error;
     }
