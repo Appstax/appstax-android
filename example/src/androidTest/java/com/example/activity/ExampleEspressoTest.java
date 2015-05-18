@@ -3,13 +3,10 @@ package com.example.activity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.example.R;
-
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.text.StringContains.containsString;
 
 @LargeTest
 public class ExampleEspressoTest extends ActivityInstrumentationTestCase2<ExampleActivity> {
@@ -25,6 +22,6 @@ public class ExampleEspressoTest extends ActivityInstrumentationTestCase2<Exampl
     }
 
     public void testActivityShouldHaveText() throws InterruptedException {
-        onView(withId(R.id.text)).check(matches(withText(containsString("Not authorized"))));
+        onView(withText("Error")).check(matches(isDisplayed()));
     }
 }
