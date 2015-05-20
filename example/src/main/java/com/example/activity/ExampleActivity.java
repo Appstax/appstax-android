@@ -7,11 +7,14 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.appstax.AppstaxObject;
-import com.appstax.android.*;
+import com.appstax.AppstaxUser;
+import com.appstax.android.Appstax;
+import com.appstax.android.Callback;
 import com.example.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ExampleActivity extends ListActivity {
 
@@ -38,38 +41,55 @@ public class ExampleActivity extends ListActivity {
         Appstax.setAppKey(APP_KEY);
         Appstax.setApiUrl(API_URL);
 
-        // New object.
-        AppstaxObject object = new AppstaxObject(COLLECTION_NAME);
+        String username = UUID.randomUUID().toString();
+        String password = UUID.randomUUID().toString();
 
-        // Save object, without callback.
-        Appstax.save(object, null);
+        // Create user and make objects.
+        Appstax.signup(username, password, new Callback<AppstaxUser>() {
 
-        // Get latest version.
-        Appstax.refresh(object, null);
-
-        // Find all objects in collection.
-        Appstax.find(COLLECTION_NAME, new Callback<List<AppstaxObject>>() {
             public void fail(Exception e) {
-                showMessage("error", e.getMessage());
+                e.printStackTrace();
+                showMessage("signup error", e.getMessage());
             }
+
+            public void done(AppstaxUser output) {
+                createObject();
+                listObjects();
+            }
+        });
+    }
+
+    private void createObject() {
+        AppstaxObject object = new AppstaxObject(COLLECTION_NAME);
+        Appstax.save(object, null);
+        Appstax.refresh(object, null);
+    }
+
+    private void listObjects() {
+        Appstax.find(COLLECTION_NAME, new Callback<List<AppstaxObject>>() {
+
             public void done(List<AppstaxObject> objects) {
                 addToList(objects);
             }
+
+            public void fail(Exception e) {
+                showMessage("list error", e.getMessage());
+            }
+
         });
-
-    }
-
-    private void showMessage(String title, String message) {
-        new AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(message)
-            .show();
     }
 
     private void addToList(List<AppstaxObject> objects) {
         for (AppstaxObject object : objects) {
             adapter.add(object.getId());
         }
+    }
+
+    private void showMessage(String title, String message) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .show();
     }
 
 }

@@ -67,7 +67,7 @@ public class ExampleActivityTest {
                 assertTrue(false);
             }
             public void fail(Exception e) {
-                assertTrue(e.getMessage().length() > 0);
+                assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
     }
@@ -79,7 +79,7 @@ public class ExampleActivityTest {
                 assertTrue(false);
             }
             public void fail(Exception e) {
-                assertTrue(e.getMessage().length() > 0);
+                assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
     }
@@ -91,7 +91,7 @@ public class ExampleActivityTest {
                 assertTrue(false);
             }
             public void fail(Exception e) {
-                assertTrue(e.getMessage().length() > 0);
+                assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
     }

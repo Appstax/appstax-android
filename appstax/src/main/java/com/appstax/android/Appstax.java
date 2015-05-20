@@ -1,6 +1,8 @@
 package com.appstax.android;
 
 import com.appstax.AppstaxObject;
+import com.appstax.AppstaxUser;
+
 import java.util.List;
 import java.util.Map;
 
@@ -58,6 +60,46 @@ public abstract class Appstax extends com.appstax.Appstax {
         new Request<List<AppstaxObject>>(callback) {
             protected List<AppstaxObject> apply() {
                 return com.appstax.Appstax.filter(collection, properties);
+            }
+        };
+    }
+
+    public static void signup(final String username, final String password, final Callback<AppstaxUser> callback) {
+        new Request<AppstaxUser>(callback) {
+            protected AppstaxUser apply() {
+                return com.appstax.Appstax.signup(username, password);
+            }
+        };
+    }
+
+    public static void login(final String username, final String password, final Callback<AppstaxUser> callback) {
+        new Request<AppstaxUser>(callback) {
+            protected AppstaxUser apply() {
+                return com.appstax.Appstax.login(username, password);
+            }
+        };
+    }
+
+    public static void logout(final Callback<AppstaxUser> callback) {
+        new Request<AppstaxUser>(callback) {
+            protected AppstaxUser apply() {
+                return com.appstax.Appstax.logout();
+            }
+        };
+    }
+
+    public static void save(final AppstaxUser user, final Callback<AppstaxUser> callback) {
+        new Request<AppstaxUser>(callback) {
+            protected AppstaxUser apply() {
+                return com.appstax.Appstax.save(user);
+            }
+        };
+    }
+
+    public static void refresh(final AppstaxUser user, final Callback<AppstaxUser> callback) {
+        new Request<AppstaxUser>(callback) {
+            protected AppstaxUser apply() {
+                return com.appstax.Appstax.refresh(user);
             }
         };
     }
