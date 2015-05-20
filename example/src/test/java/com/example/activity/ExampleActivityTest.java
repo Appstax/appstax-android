@@ -11,6 +11,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -61,16 +63,36 @@ public class ExampleActivityTest {
     @Test
     public void testObjectSave() {
         Appstax.save(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
-            public void done(AppstaxObject output) { assertTrue(false); }
-            public void fail(Exception e) { assertTrue(e.getMessage().length() > 0); }
+            public void done(AppstaxObject output) {
+                assertTrue(false);
+            }
+            public void fail(Exception e) {
+                assertTrue(e.getMessage().length() > 0);
+            }
         });
     }
 
     @Test
     public void testObjectRemove() {
         Appstax.remove(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
-            public void done(AppstaxObject output) { assertTrue(false); }
-            public void fail(Exception e) { assertTrue(e.getMessage().length() > 0); }
+            public void done(AppstaxObject output) {
+                assertTrue(false);
+            }
+            public void fail(Exception e) {
+                assertTrue(e.getMessage().length() > 0);
+            }
+        });
+    }
+
+    @Test
+    public void testObjectFilter() {
+        Appstax.filter(COLLECTION_BLANK, "Age > 42", new Callback<List<AppstaxObject>>() {
+            public void done(List<AppstaxObject> output) {
+                assertTrue(false);
+            }
+            public void fail(Exception e) {
+                assertTrue(e.getMessage().length() > 0);
+            }
         });
     }
 
