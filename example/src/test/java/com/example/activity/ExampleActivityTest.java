@@ -61,12 +61,16 @@ public class ExampleActivityTest {
     @Test
     public void testObjectSave() {
         Appstax.save(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
-            public void done(AppstaxObject output) {
-                assertTrue(false);
-            }
-            public void fail(Exception e) {
-                assertTrue(e.getMessage().length() > 0);
-            }
+            public void done(AppstaxObject output) { assertTrue(false); }
+            public void fail(Exception e) { assertTrue(e.getMessage().length() > 0); }
+        });
+    }
+
+    @Test
+    public void testObjectRemove() {
+        Appstax.remove(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
+            public void done(AppstaxObject output) { assertTrue(false); }
+            public void fail(Exception e) { assertTrue(e.getMessage().length() > 0); }
         });
     }
 
