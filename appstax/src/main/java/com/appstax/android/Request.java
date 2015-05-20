@@ -1,31 +1,41 @@
 package com.appstax.android;
 
-import com.appstax.AppstaxObject;
+import android.os.AsyncTask;
 
-import java.util.List;
 
-public class Request {
+abstract class Request<O> extends AsyncTask<Void, Void, Void> {
 
-    public static Response<List<AppstaxObject>> find(String collection) {
-        class Task extends Async<String,List<AppstaxObject>> {
-            protected List<AppstaxObject> apply(String collection) {
-                return AppstaxObject.find(collection);
-            }
-        }
-        return new Task().perform(collection);
+    private final Callback<O> callback;
+    private volatile Exception error;
+    private volatile O result;
+
+    public Request(Callback<O> callback) {
+        this.callback = callback;
+        this.execute();
     }
 
-    public static Response<AppstaxObject> save(AppstaxObject object) {
-        class Task extends Async<AppstaxObject, AppstaxObject> {
-            protected AppstaxObject apply(AppstaxObject object) {
-                object.save();
-                return object;
-            }
+    @Override
+    protected Void doInBackground(Void... input) {
+        try {
+            this.result = apply();
+        } catch (Exception e) {
+            this.error = e;
+        } finally {
+            return null;
         }
-        return new Task().perform(object);
     }
 
+    @Override
+    protected void onPostExecute(Void output) {
+        if (callback == null) {
+            return;
+        } else if (this.result != null) {
+            callback.done(this.result);
+        } else {
+            callback.fail(this.error);
+        }
+    }
 
+    protected abstract O apply();
 
 }
-

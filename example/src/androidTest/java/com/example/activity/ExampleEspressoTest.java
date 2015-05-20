@@ -22,6 +22,6 @@ public class ExampleEspressoTest extends ActivityInstrumentationTestCase2<Exampl
     }
 
     public void testActivityShouldHaveText() throws InterruptedException {
-        onView(withText("Error")).check(matches(isDisplayed()));
+        onView(withText("BlankCollection")).check(matches(isDisplayed()));
     }
 }
