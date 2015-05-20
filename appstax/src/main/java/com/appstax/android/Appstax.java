@@ -1,7 +1,6 @@
 package com.appstax.android;
 
 import com.appstax.AppstaxObject;
-
 import java.util.List;
 
 public abstract class Appstax extends com.appstax.Appstax {
@@ -37,7 +36,5 @@ public abstract class Appstax extends com.appstax.Appstax {
             }
         };
     }
-
-
 
 }

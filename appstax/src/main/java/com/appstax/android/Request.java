@@ -2,7 +2,6 @@ package com.appstax.android;
 
 import android.os.AsyncTask;
 
-
 abstract class Request<O> extends AsyncTask<Void, Void, Void> {
 
     private final Callback<O> callback;
