@@ -36,5 +36,13 @@ public abstract class Appstax extends com.appstax.Appstax {
             }
         };
     }
+    
+    public static void refresh(final AppstaxObject object, final Callback<AppstaxObject> callback) {
+        new Request<AppstaxObject>(callback) {
+            protected AppstaxObject apply() {
+                return com.appstax.Appstax.refresh(object);
+            }
+        };
+    }
 
 }

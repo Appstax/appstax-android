@@ -44,6 +44,9 @@ public class ExampleActivity extends ListActivity {
         // Save object, without callback.
         Appstax.save(object, null);
 
+        // Get latest version.
+        Appstax.refresh(object, null);
+
         // Find all objects in collection.
         Appstax.find(COLLECTION_NAME, new Callback<List<AppstaxObject>>() {
             public void fail(Exception e) {
