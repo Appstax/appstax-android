@@ -61,6 +61,12 @@ public class ExampleActivity extends ListActivity {
 
     private void createObject() {
         AppstaxObject object = new AppstaxObject(COLLECTION_NAME);
+
+        object.grant(new ArrayList<String>(){{
+            add("read");
+            add("update");
+        }});
+
         Appstax.save(object, null);
         Appstax.refresh(object, null);
     }
