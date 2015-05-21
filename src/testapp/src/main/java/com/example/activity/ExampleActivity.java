@@ -1,6 +1,5 @@
 package com.example.activity;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -46,42 +45,31 @@ public class ExampleActivity extends ListActivity {
 
         // Create user and make objects.
         Appstax.signup(username, password, new Callback<AppstaxUser>() {
-
             public void onSuccess(AppstaxUser output) {
                 createObject();
                 listObjects();
             }
-
             public void onError(Exception e) {
-                showMessage("signup error", e.getMessage());
+                e.printStackTrace();
             }
-
         });
     }
 
     private void createObject() {
         AppstaxObject object = new AppstaxObject(COLLECTION_NAME);
-
-        object.grant(new ArrayList<String>(){{
-            add("read");
-            add("update");
-        }});
-
+        object.grant(new ArrayList<String>(){{ add("read"); add("update"); }});
         Appstax.save(object, null);
         Appstax.refresh(object, null);
     }
 
     private void listObjects() {
         Appstax.find(COLLECTION_NAME, new Callback<List<AppstaxObject>>() {
-
             public void onSuccess(List<AppstaxObject> objects) {
                 addToList(objects);
             }
-
             public void onError(Exception e) {
-                showMessage("list error", e.getMessage());
+                e.printStackTrace();
             }
-
         });
     }
 
@@ -89,13 +77,6 @@ public class ExampleActivity extends ListActivity {
         for (AppstaxObject object : objects) {
             adapter.add(object.getId());
         }
-    }
-
-    private void showMessage(String title, String message) {
-        new AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(message)
-            .show();
     }
 
 }

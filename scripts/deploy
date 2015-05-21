@@ -4,11 +4,13 @@
 cd "$(dirname "$0")"/..
 
 SOURCE="src/appstax/build/libs/appstax.jar"
-TARGET="dist/appstax-android-1.0.0.jar"
+TARGET1="dist/appstax-android.jar"
+TARGET2="examples/basic/app/libs/appstax-android.jar"
 
 cd src
 ./gradlew jarRelease
 cd ..
 
-rm -f "$TARGET"
-cp "$SOURCE" "$TARGET"
+rm -f "$TARGET1" "$TARGET2"
+cp "$SOURCE" "$TARGET1"
+cp "$SOURCE" "$TARGET2"
