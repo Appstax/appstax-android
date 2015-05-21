@@ -15,7 +15,7 @@ Here's how you can add the SDK to your Android Studio project:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    // ...
     compile files('libs/appstax-android.jar')
 }
 ```
