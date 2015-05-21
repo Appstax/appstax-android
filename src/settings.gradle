@@ -1,5 +1,5 @@
 include ':appstax'
 project(':appstax').projectDir = new File(settingsDir, 'appstax')
 
-include ':example'
+include ':testapp'
 
