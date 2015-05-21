@@ -80,10 +80,11 @@ public abstract class Appstax extends com.appstax.Appstax {
         };
     }
 
-    public static void logout(final Callback<AppstaxUser> callback) {
-        new Request<AppstaxUser>(callback) {
-            protected AppstaxUser run() {
-                return com.appstax.Appstax.logout();
+    public static void logout(final Callback<Void> callback) {
+        new Request<Void>(callback) {
+            protected Void run() {
+                com.appstax.Appstax.logout();
+                return null;
             }
         };
     }
