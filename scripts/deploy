@@ -1,0 +1,14 @@
+#!/usr/bin/env bash -eu
+# Create distributable jar
+
+cd "$(dirname "$0")"/..
+
+FILE="appstax/build/libs/appstax.jar"
+DIST="appstax-android-1.0.0.jar"
+SOURCE="appstax/build/libs/appstax.jar"
+TARGET="dist/appstax-android-1.0.0.jar"
+
+./gradlew jarRelease
+
+rm -f "$TARGET"
+cp "$SOURCE" "$TARGET"
