@@ -16,7 +16,7 @@ abstract class Request<O> extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... input) {
         try {
-            this.result = apply();
+            this.result = run();
         } catch (Exception e) {
             this.error = e;
         } finally {
@@ -29,12 +29,12 @@ abstract class Request<O> extends AsyncTask<Void, Void, Void> {
         if (callback == null) {
             return;
         } else if (this.result != null) {
-            callback.done(this.result);
+            callback.onSuccess(this.result);
         } else {
-            callback.fail(this.error);
+            callback.onError(this.error);
         }
     }
 
-    protected abstract O apply();
+    protected abstract O run();
 
 }

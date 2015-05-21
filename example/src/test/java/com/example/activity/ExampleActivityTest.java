@@ -63,10 +63,10 @@ public class ExampleActivityTest {
     @Test
     public void testObjectSave() {
         Appstax.save(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
-            public void done(AppstaxObject output) {
+            public void onSuccess(AppstaxObject output) {
                 assertTrue(false);
             }
-            public void fail(Exception e) {
+            public void onError(Exception e) {
                 assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
@@ -75,10 +75,10 @@ public class ExampleActivityTest {
     @Test
     public void testObjectRemove() {
         Appstax.remove(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
-            public void done(AppstaxObject output) {
+            public void onSuccess(AppstaxObject output) {
                 assertTrue(false);
             }
-            public void fail(Exception e) {
+            public void onError(Exception e) {
                 assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
@@ -87,10 +87,10 @@ public class ExampleActivityTest {
     @Test
     public void testObjectFilter() {
         Appstax.filter(COLLECTION_BLANK, "Age > 42", new Callback<List<AppstaxObject>>() {
-            public void done(List<AppstaxObject> output) {
+            public void onSuccess(List<AppstaxObject> output) {
                 assertTrue(false);
             }
-            public void fail(Exception e) {
+            public void onError(Exception e) {
                 assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });

@@ -32,10 +32,10 @@ public class ExampleActivity extends ListActivity {
         setContentView(R.layout.example);
 
         // Setup activity.
-        this.adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-        this.setListAdapter(adapter);
         this.text = (TextView) findViewById(R.id.title);
         this.text.setText(COLLECTION_NAME);
+        this.adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        this.setListAdapter(adapter);
 
         // Setup Appstax.
         Appstax.setAppKey(APP_KEY);
@@ -47,15 +47,15 @@ public class ExampleActivity extends ListActivity {
         // Create user and make objects.
         Appstax.signup(username, password, new Callback<AppstaxUser>() {
 
-            public void fail(Exception e) {
-                e.printStackTrace();
-                showMessage("signup error", e.getMessage());
-            }
-
-            public void done(AppstaxUser output) {
+            public void onSuccess(AppstaxUser output) {
                 createObject();
                 listObjects();
             }
+
+            public void onError(Exception e) {
+                showMessage("signup error", e.getMessage());
+            }
+
         });
     }
 
@@ -68,11 +68,11 @@ public class ExampleActivity extends ListActivity {
     private void listObjects() {
         Appstax.find(COLLECTION_NAME, new Callback<List<AppstaxObject>>() {
 
-            public void done(List<AppstaxObject> objects) {
+            public void onSuccess(List<AppstaxObject> objects) {
                 addToList(objects);
             }
 
-            public void fail(Exception e) {
+            public void onError(Exception e) {
                 showMessage("list error", e.getMessage());
             }
 
@@ -87,9 +87,9 @@ public class ExampleActivity extends ListActivity {
 
     private void showMessage(String title, String message) {
         new AlertDialog.Builder(this)
-                .setTitle(title)
-                .setMessage(message)
-                .show();
+            .setTitle(title)
+            .setMessage(message)
+            .show();
     }
 
 }
