@@ -29,29 +29,20 @@ dependencies {
 * Set your app key:
 
 ```java
-import com.appstax.android.Appstax;
-
-// ...
-
 Appstax.setAppKey("YourAppKey");
 ```
 
 ## Example usage
 
 ```java
-import com.appstax.android.Appstax;
-import com.appstax.AppstaxObject;
-
-// ...
-
 Appstax.setAppKey("YourAppKey");
 
-AppstaxObject object = new AppstaxObject("Contacts");
+AxObject object = new AxObject("Contacts");
 object.put("name", "Foo McBar");
 object.put("email", "foo@example.com");
 
-Appstax.save(object, new Callback<AppstaxObject>() {
-    public void onSuccess(AppstaxObject object) {
+Appstax.save(object, new Callback<AxObject>() {
+    public void onSuccess(AxObject object) {
         showMessage("saved", object.get("name"));
     }
     public void onError(Exception e) {
