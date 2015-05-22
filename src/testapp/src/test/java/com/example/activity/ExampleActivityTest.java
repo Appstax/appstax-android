@@ -1,6 +1,6 @@
 package com.example.activity;
 
-import com.appstax.AppstaxObject;
+import com.appstax.AxObject;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
@@ -22,7 +22,7 @@ public class ExampleActivityTest {
 
     private static final String APP_KEY_1 = "YourApiKey";
     private static final String APP_KEY_2 = "SomeAppKey";
-    private static final String API_URL_1 = com.appstax.Appstax.getApiUrl();
+    private static final String API_URL_1 = com.appstax.Ax.getApiUrl();
 
     private static final String COLLECTION_COUNT = "CountCollection";
     private static final String COLLECTION_BLANK = "BlankCollection";
@@ -52,7 +52,7 @@ public class ExampleActivityTest {
 
     @Test
     public void testObjectCreate() {
-        AppstaxObject object = new AppstaxObject(COLLECTION_COUNT);
+        AxObject object = new AxObject(COLLECTION_COUNT);
         object.put("title", "hello");
         object.put("count", 42);
         assertEquals(COLLECTION_COUNT, object.getCollection());
@@ -62,8 +62,8 @@ public class ExampleActivityTest {
 
     @Test
     public void testObjectSave() {
-        Appstax.save(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
-            public void onSuccess(AppstaxObject output) {
+        Appstax.save(new AxObject(COLLECTION_BLANK), new Callback<AxObject>() {
+            public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
             public void onError(Exception e) {
@@ -74,8 +74,8 @@ public class ExampleActivityTest {
 
     @Test
     public void testObjectRemove() {
-        Appstax.remove(new AppstaxObject(COLLECTION_BLANK), new Callback<AppstaxObject>() {
-            public void onSuccess(AppstaxObject output) {
+        Appstax.remove(new AxObject(COLLECTION_BLANK), new Callback<AxObject>() {
+            public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
             public void onError(Exception e) {
@@ -86,8 +86,8 @@ public class ExampleActivityTest {
 
     @Test
     public void testObjectFilter() {
-        Appstax.filter(COLLECTION_BLANK, "Age > 42", new Callback<List<AppstaxObject>>() {
-            public void onSuccess(List<AppstaxObject> output) {
+        Appstax.filter(COLLECTION_BLANK, "Age > 42", new Callback<List<AxObject>>() {
+            public void onSuccess(List<AxObject> output) {
                 assertTrue(false);
             }
             public void onError(Exception e) {

@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.appstax.AppstaxUser;
+import com.appstax.AxUser;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
@@ -22,9 +22,9 @@ public class MainActivity extends ActionBarActivity {
         Appstax.setAppKey("YourAppKey");
 
         // Create a new user and log in.
-        Appstax.signup("James Bond", "Secret Agent", new Callback<AppstaxUser>() {
+        Appstax.signup("James Bond", "Secret Agent", new Callback<AxUser>() {
 
-            public void onSuccess(AppstaxUser user) {
+            public void onSuccess(AxUser user) {
                 showMessage("Welcome", "Hello, " + user.getUsername());
             }
 

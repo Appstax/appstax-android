@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.appstax.AppstaxObject;
-import com.appstax.AppstaxUser;
+import com.appstax.AxObject;
+import com.appstax.AxUser;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 import com.example.R;
@@ -44,8 +44,8 @@ public class ExampleActivity extends ListActivity {
         String password = UUID.randomUUID().toString();
 
         // Create user and make objects.
-        Appstax.signup(username, password, new Callback<AppstaxUser>() {
-            public void onSuccess(AppstaxUser output) {
+        Appstax.signup(username, password, new Callback<AxUser>() {
+            public void onSuccess(AxUser output) {
                 createObject();
                 listObjects();
             }
@@ -56,15 +56,15 @@ public class ExampleActivity extends ListActivity {
     }
 
     private void createObject() {
-        AppstaxObject object = new AppstaxObject(COLLECTION_NAME);
+        AxObject object = new AxObject(COLLECTION_NAME);
         object.grant(new ArrayList<String>(){{ add("read"); add("update"); }});
         Appstax.save(object, null);
         Appstax.refresh(object, null);
     }
 
     private void listObjects() {
-        Appstax.find(COLLECTION_NAME, new Callback<List<AppstaxObject>>() {
-            public void onSuccess(List<AppstaxObject> objects) {
+        Appstax.find(COLLECTION_NAME, new Callback<List<AxObject>>() {
+            public void onSuccess(List<AxObject> objects) {
                 addToList(objects);
             }
             public void onError(Exception e) {
@@ -73,8 +73,8 @@ public class ExampleActivity extends ListActivity {
         });
     }
 
-    private void addToList(List<AppstaxObject> objects) {
-        for (AppstaxObject object : objects) {
+    private void addToList(List<AxObject> objects) {
+        for (AxObject object : objects) {
             adapter.add(object.getId());
         }
     }
