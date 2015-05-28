@@ -1,16 +1,17 @@
 #!/usr/bin/env bash -eu
-# Create distributable jar
+# Local development deploy
 
 cd "$(dirname "$0")"/..
 
 SOURCE="src/appstax/build/libs/appstax.jar"
-TARGET1="dist/appstax-android.jar"
-TARGET2="examples/basic/app/libs/appstax-android.jar"
+TARGET="appstax-android.jar"
 
-cd src
+ANDROID="dist/$TARGET"
+EXAMPLE="examples/basic/app/libs/$TARGET"
+
+pushd src
 ./gradlew jarRelease
-cd ..
+popd
 
-rm -f "$TARGET1" "$TARGET2"
-cp "$SOURCE" "$TARGET1"
-cp "$SOURCE" "$TARGET2"
+cp $SOURCE $ANDROID
+cp $SOURCE $EXAMPLE
