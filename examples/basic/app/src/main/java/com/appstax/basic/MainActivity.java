@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.appstax.AxException;
 import com.appstax.AxUser;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
@@ -34,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
                 showMessage("Welcome", "Hello, " + user.getUsername());
             }
 
-            public void onError(Exception e) {
+            public void onError(AxException e) {
                 showMessage("Error", e.getMessage());
             }
 

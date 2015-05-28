@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.appstax.AxException;
 import com.appstax.AxObject;
 import com.appstax.AxUser;
 import com.appstax.android.Appstax;
@@ -49,7 +50,7 @@ public class ExampleActivity extends ListActivity {
                 createObject();
                 listObjects();
             }
-            public void onError(Exception e) {
+            public void onError(AxException e) {
                 e.printStackTrace();
             }
         });
@@ -67,7 +68,7 @@ public class ExampleActivity extends ListActivity {
             public void onSuccess(List<AxObject> objects) {
                 addToList(objects);
             }
-            public void onError(Exception e) {
+            public void onError(AxException e) {
                 e.printStackTrace();
             }
         });

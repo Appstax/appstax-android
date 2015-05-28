@@ -1,5 +1,6 @@
 package com.example.activity;
 
+import com.appstax.AxException;
 import com.appstax.AxObject;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
@@ -66,7 +67,7 @@ public class ExampleActivityTest {
             public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
-            public void onError(Exception e) {
+            public void onError(AxException e) {
                 assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
@@ -78,7 +79,7 @@ public class ExampleActivityTest {
             public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
-            public void onError(Exception e) {
+            public void onError(AxException e) {
                 assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
@@ -90,7 +91,7 @@ public class ExampleActivityTest {
             public void onSuccess(List<AxObject> output) {
                 assertTrue(false);
             }
-            public void onError(Exception e) {
+            public void onError(AxException e) {
                 assertTrue(e.getMessage().startsWith("Not authorized."));
             }
         });
