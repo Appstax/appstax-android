@@ -1,10 +1,10 @@
 package com.appstax.basic;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.appstax.AxException;
 import com.appstax.AxUser;
@@ -43,10 +43,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void showMessage(String title, String message) {
-        new AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(message)
-            .show();
+        final TextView text = (TextView) findViewById(R.id.text);
+        this.setTitle(title);
+        text.setText(message);
     }
 
     @Override
