@@ -1,6 +1,7 @@
 package com.appstax.android;
 
 import com.appstax.Ax;
+import com.appstax.AxFile;
 import com.appstax.AxObject;
 import com.appstax.AxUser;
 
@@ -29,6 +30,14 @@ public abstract class Appstax extends Ax {
         new Request<AxObject>(callback) {
             protected AxObject run() {
                 return Ax.refresh(object);
+            }
+        };
+    }
+
+    public static void load(final AxFile file, final Callback<AxFile> callback) {
+        new Request<AxFile>(callback) {
+            protected AxFile run() {
+                return Ax.load(file);
             }
         };
     }
