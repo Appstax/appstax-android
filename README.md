@@ -7,29 +7,21 @@ Please read the [Android Guide](https://appstax.com/docs/Android-SDK-Guide) to g
 
 The easiest way to get started, is to try out the Android Studio project in `examples/basic`.
 
-Here's how you can add the SDK to your Android Studio project:
+Here's how you can add the SDK to an existing Android project:
 
-* [Download the latest release](https://github.com/appstax/appstax-java/releases).
-* Add the downloaded JAR to the `app/libs` folder.
-* Add the dependency to your `app/build.gradle`:
-
-```gradle
-dependencies {
-    // ...
-    compile files('libs/appstax-android.jar')
-}
-```
-
-* Permit internet access in `AndroidManifest.xml`:
+* [Sign up for an account](http://appstax.com/)
+* [Download the SDK](https://github.com/Appstax/appstax-android/releases)
+* Add the `dist/appstax-android.jar` file to your `libs` folder.
+* Add the dependency to your build file, and set the correct permissions:
 
 ```xml
+// in app/build.gradle:
+dependencies {
+    compile files('libs/appstax-android.jar')
+}
+
+// in AndroidManifest.xml:
 <uses-permission android:name="android.permission.INTERNET" />
-```
-
-* Set your app key:
-
-```java
-Appstax.setAppKey("YourAppKey");
 ```
 
 ## Example usage
