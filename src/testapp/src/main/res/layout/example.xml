@@ -8,7 +8,6 @@
 
     <TextView
         android:id="@+id/title"
-        android:text="Items"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         style="?android:attr/listSeparatorTextViewStyle" />
