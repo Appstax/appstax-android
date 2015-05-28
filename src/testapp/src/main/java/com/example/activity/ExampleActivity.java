@@ -57,7 +57,7 @@ public class ExampleActivity extends ListActivity {
 
     private void createObject() {
         AxObject object = new AxObject(COLLECTION_NAME);
-        object.grant(new ArrayList<String>(){{ add("read"); add("update"); }});
+        object.grantPublic("read", "update");
         Appstax.save(object, null);
         Appstax.refresh(object, null);
     }
