@@ -1,4 +1,4 @@
-package com.example.activity;
+package com.testapp.activity;
 
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import com.appstax.AxObject;
 import com.appstax.AxUser;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
-import com.example.R;
+import com.testapp.R;
 
 import java.util.ArrayList;
 import java.util.List;

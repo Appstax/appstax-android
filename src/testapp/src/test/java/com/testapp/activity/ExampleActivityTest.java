@@ -1,4 +1,4 @@
-package com.example.activity;
+package com.testapp.activity;
 
 import com.appstax.AxException;
 import com.appstax.AxObject;

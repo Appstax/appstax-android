@@ -19,7 +19,7 @@ android {
         targetSdkVersion 18
         versionCode 1
         versionName "1"
-        applicationId "com.example"
+        applicationId "com.testapp"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 

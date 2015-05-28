@@ -1,4 +1,4 @@
-package com.example.activity;
+package com.testapp.activity;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
