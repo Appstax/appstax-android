@@ -1,7 +1,8 @@
 # Appstax Android SDK
 
 This is the official Android SDK for [Appstax](https://appstax.com).
-Please read the [Android Guide](https://appstax.com/docs/Android-SDK-Guide) to get up and running.
+
+It's a work in progress, and not ready for use quite yet.
 
 ## Example
 
