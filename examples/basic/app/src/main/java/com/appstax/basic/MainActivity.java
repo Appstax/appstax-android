@@ -10,6 +10,8 @@ import com.appstax.AxUser;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
+import java.util.UUID;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -21,8 +23,12 @@ public class MainActivity extends ActionBarActivity {
         // Set your app key.
         Appstax.setAppKey("YourAppKey");
 
+        // Get username and password from input.
+        String username = UUID.randomUUID().toString();
+        String password = UUID.randomUUID().toString();
+
         // Create a new user and log in.
-        Appstax.signup("James Bond", "Secret Agent", new Callback<AxUser>() {
+        Appstax.signup(username, password, new Callback<AxUser>() {
 
             public void onSuccess(AxUser user) {
                 showMessage("Welcome", "Hello, " + user.getUsername());
