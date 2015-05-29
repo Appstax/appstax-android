@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ExampleActivity extends ListActivity {
+public class Activity extends ListActivity {
 
     private static final String APP_KEY = "YourAppKey";
     private static final String API_URL = "https://appstax.com/api/latest/";
@@ -29,7 +29,7 @@ public class ExampleActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.example);
+        setContentView(R.layout.activity);
 
         // Setup activity.
         this.text = (TextView) findViewById(R.id.title);

@@ -1,25 +1,22 @@
 package com.testapp.activity;
 
+import android.test.ActivityInstrumentationTestCase2;
+import android.test.suitebuilder.annotation.LargeTest;
+
 import com.appstax.AxException;
 import com.appstax.AxObject;
 import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
-
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
-@RunWith(RobolectricTestRunner.class)
-@Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
-public class ExampleActivityTest {
+@LargeTest
+public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activity> {
 
     private static final String APP_KEY_1 = "YourApiKey";
     private static final String APP_KEY_2 = "SomeAppKey";
@@ -28,30 +25,32 @@ public class ExampleActivityTest {
     private static final String COLLECTION_COUNT = "CountCollection";
     private static final String COLLECTION_BLANK = "BlankCollection";
 
-    @Before
-    public void before() {
+    public ActivityEspressoTest() {
+        super(Activity.class);
+    }
+
+    @Override
+    public void setUp() throws Exception {
+        super.setUp();
+        getActivity();
         Appstax.setAppKey(APP_KEY_1);
         Appstax.setApiUrl(API_URL_1);
     }
 
-    @Test
-    public void testRoboelectricSetup() throws Exception {
-        assertTrue(Robolectric.buildActivity(ExampleActivity.class).create().get() != null);
+    public void testActivityShouldHaveText() throws InterruptedException {
+        onView(withText(COLLECTION_BLANK)).check(matches(isDisplayed()));
     }
 
-    @Test
     public void testAppKey() {
         assertEquals(APP_KEY_1, Appstax.getAppKey());
         Appstax.setAppKey(APP_KEY_2);
         assertEquals(APP_KEY_2, Appstax.getAppKey());
     }
 
-    @Test
     public void testApiUrl() {
         assertEquals(API_URL_1, Appstax.getApiUrl());
     }
 
-    @Test
     public void testObjectCreate() {
         AxObject object = new AxObject(COLLECTION_COUNT);
         object.put("title", "hello");
@@ -61,7 +60,6 @@ public class ExampleActivityTest {
         assertEquals(42, object.get("count"));
     }
 
-    @Test
     public void testObjectSave() {
         Appstax.save(new AxObject(COLLECTION_BLANK), new Callback<AxObject>() {
             public void onSuccess(AxObject output) {
@@ -73,7 +71,6 @@ public class ExampleActivityTest {
         });
     }
 
-    @Test
     public void testObjectRemove() {
         Appstax.remove(new AxObject(COLLECTION_BLANK), new Callback<AxObject>() {
             public void onSuccess(AxObject output) {
@@ -85,7 +82,6 @@ public class ExampleActivityTest {
         });
     }
 
-    @Test
     public void testObjectFilter() {
         Appstax.filter(COLLECTION_BLANK, "Age > 42", new Callback<List<AxObject>>() {
             public void onSuccess(List<AxObject> output) {

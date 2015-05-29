@@ -3,23 +3,15 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
-
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 22
     }
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            res.srcDirs = []
-            assets.srcDirs = []
-        }
-        androidTest {
-            setRoot('src/test')
         }
     }
-
     lintOptions {
         disable 'InvalidPackage'
     }
@@ -27,7 +19,9 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile 'com.appstax:appstax-java:1.0.0'
+    compile('com.appstax:appstax-java:1.0.2-SNAPSHOT') {
+        exclude group: 'org.json', module: 'json'
+    }
 }
 
 // https://gist.github.com/kellyfj/9666950

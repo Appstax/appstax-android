@@ -5,12 +5,12 @@
 
     <application
         android:allowBackup="true"
-        android:name=".ExampleApplication"
+        android:name=".Application"
         android:label="Appstax"
         android:icon="@mipmap/ic_launcher">
 
         <activity
-            android:name=".activity.ExampleActivity"
+            android:name=".activity.Activity"
             android:label="Appstax"
             android:icon="@mipmap/ic_launcher"
             android:theme="@android:style/Theme.Holo"
