@@ -1,0 +1,4 @@
+language: android
+before_install: cd src
+git:
+  depth: 1
