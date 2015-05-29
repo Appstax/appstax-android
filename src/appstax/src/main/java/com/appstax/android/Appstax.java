@@ -8,7 +8,7 @@ import com.appstax.AxUser;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Appstax extends Ax {
+public class Appstax extends Ax {
 
     public static void save(final AxObject object, final Callback<AxObject> callback) {
         new Request<AxObject>(callback) {
