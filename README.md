@@ -7,6 +7,8 @@ This is the official Android SDK for [Appstax](https://appstax.com).
 
 It's a work in progress, and not ready for use quite yet.
 
+Check out the [Android SDK Guide](https://appstax.com/docs/Android-Guide/) to get started.
+
 ## Installation with Gradle
 
 Add the SDK as a dependency in your app's `build.gradle` file:
