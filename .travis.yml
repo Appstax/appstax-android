@@ -1,7 +1,7 @@
 language: android
 before_install: cd src
 before_script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
@@ -10,5 +10,5 @@ git:
 android:
   components:
     - build-tools-22.0.1
-    - android-22
-    - sys-img-armeabi-v7a-android-18
+    - android-19
+    - sys-img-armeabi-v7a-android-19
