@@ -7,7 +7,7 @@ This is the official Android SDK for [Appstax](https://appstax.com).
 
 It's a work in progress, and not ready for use quite yet.
 
-## Install
+## Installation with Gradle
 
 Add the SDK as a dependency in your app's `build.gradle` file:
 
@@ -19,7 +19,7 @@ dependencies {
 
 This assumes you're using the standard jcenter repository.
 
-## Example
+## Usage example
 
 ```java
 Appstax.setAppKey("YourAppKey");
