@@ -7,6 +7,18 @@ This is the official Android SDK for [Appstax](https://appstax.com).
 
 It's a work in progress, and not ready for use quite yet.
 
+## Install
+
+Add the SDK as a dependency in your app's `build.gradle` file:
+
+```gradle
+dependencies {
+    compile 'com.appstax:appstax-android:+'
+}
+```
+
+This assumes you're using the standard jcenter repository.
+
 ## Example
 
 ```java
