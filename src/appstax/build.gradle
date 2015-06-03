@@ -19,7 +19,7 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile('com.appstax:appstax-java:1.0.2-SNAPSHOT') {
+    compile('com.appstax:appstax-java:1.0.1') {
         exclude group: 'org.json', module: 'json'
     }
 }
