@@ -4,6 +4,7 @@
 [![Download](https://api.bintray.com/packages/appstax/maven/appstax-android/images/download.svg) ](https://bintray.com/appstax/maven/appstax-android/_latestVersion)
 
 This is the official Android SDK for [Appstax](https://appstax.com).
+
 It's a work in progress, and not ready for use quite yet.
 
 Check out the [Android SDK Guide](https://appstax.com/docs/Android-Guide/) to get started.
