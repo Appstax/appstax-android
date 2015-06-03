@@ -25,3 +25,5 @@ curl -s -X POST "$BINTRAY/content/appstax/maven/appstax-android/$VERSION/publish
 
 # Tag release
 git tag "v$VERSION"
+git push
+git push --tags
