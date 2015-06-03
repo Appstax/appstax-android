@@ -1,5 +1,7 @@
 # Appstax Android SDK
 
+[![Build Status](https://travis-ci.org/Appstax/appstax-android.svg?branch=master)](https://travis-ci.org/Appstax/appstax-android)
+
 This is the official Android SDK for [Appstax](https://appstax.com).
 
 It's a work in progress, and not ready for use quite yet.
