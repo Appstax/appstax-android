@@ -1,0 +1,27 @@
+#!/usr/bin/env bash -eu
+# Release to Bintray
+
+cd "$(dirname "$0")"/../src
+
+# Config
+VERSION=$(./gradlew -q appstax:getVersionCode)
+BINTRAY="https://$BINTRAY_USER:$BINTRAY_KEY@api.bintray.com"
+
+# Confirmation
+read -p "Publish version $VERSION? [y/n] " reply
+case $reply in
+    y) echo "Publishing...";;
+    *) exit 1 ;;
+esac
+
+# Check git status
+[ -n "$(git status --porcelain)" ] && { echo "Unclean repo"; exit 1; }
+
+# Upload release
+./gradlew bintrayUpload
+
+# Publish release
+curl -s -X POST "$BINTRAY/content/appstax/maven/appstax-android/$VERSION/publish" > /dev/null
+
+# Tag release
+git tag "v$VERSION"

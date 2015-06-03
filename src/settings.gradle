@@ -1,5 +1,4 @@
-include ':appstax'
-project(':appstax').projectDir = new File(settingsDir, 'appstax')
-
+include ':appstax-android'
+project(':appstax-android').projectDir = new File(settingsDir, 'appstax-android')
 include ':testapp'
 

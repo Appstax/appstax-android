@@ -18,7 +18,7 @@ android {
 }
 
 dependencies {
-    compile project(':appstax')
+    compile project(':appstax-android')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.0')
     androidTestCompile('com.android.support.test:testing-support-lib:0.1')
     testCompile 'junit:junit:4.12'

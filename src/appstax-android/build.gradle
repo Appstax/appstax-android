@@ -1,0 +1,109 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+version = "0.0.1"
+group = "com.appstax"
+
+def projectName = "appstax-android"
+def projectUrl = 'https://github.com/Appstax/appstax-android'
+def projectScm = 'https://github.com/Appstax/appstax-android.git'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "22.0.1"
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 19
+        versionCode 1
+        versionName version
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+    buildTypes {
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name projectName
+                url projectUrl
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'http://www.opensource.org/licenses/mit-license.php'
+                    }
+                }
+                developers {
+                    developer {
+                        name 'Karl-Erik Ronsen'
+                        email 'karl-erik@appstax.com'
+                    }
+                }
+                scm {
+                    connection projectScm
+                    developerConnection projectScm
+                    url projectUrl
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile('com.appstax:appstax-java:1.0.1') {
+        exclude group: 'org.json', module: 'json'
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+task getVersionCode {
+    println version
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+
+    configurations = ['archives']
+    pkg {
+        userOrg = "appstax"
+        repo = "maven"
+        name = projectName
+        websiteUrl = projectUrl
+        vcsUrl = projectScm
+        licenses = ["MIT"]
+        dryRun = false
+        publish = false
+    }
+}
+
