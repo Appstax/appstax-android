@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Basic</string>
     <string name="title_activity_main">Welcome</string>
+    <string name="title_activity_signup">Create account</string>
     <string name="new_email_hint">Email address</string>
     <string name="new_password_hint">Choose a password</string>
     <string name="action_sign_up">Sign up</string>

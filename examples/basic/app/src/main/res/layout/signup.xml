@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
-    tools:context="com.appstax.basic.MainActivity">
-
-    <include
+    tools:context="com.appstax.basic.SignupActivity">
+ 
+    <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
@@ -17,6 +17,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:padding="@dimen/spacing">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_email_hint"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_password_hint"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/button"
