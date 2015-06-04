@@ -10,10 +10,8 @@
         android:icon="@mipmap/ic_launcher">
 
         <activity
-            android:name=".activity.Activity"
             android:label="Appstax"
-            android:icon="@mipmap/ic_launcher"
-            android:theme="@android:style/Theme.Holo"
+            android:name=".activity.Activity"
             android:screenOrientation="portrait">
 
             <intent-filter>
