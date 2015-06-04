@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Basic</string>
     <string name="title_activity_main">Welcome</string>
-    <string name="title_activity_login">Please sign in</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="new_email_hint">Email address</string>
+    <string name="new_password_hint">Choose a password</string>
+    <string name="action_sign_up">Sign up</string>
 </resources>
