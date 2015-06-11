@@ -1,4 +1,9 @@
 <resources>
     <dimen name="spacing">16dp</dimen>
+    <dimen name="spacing_double">32dp</dimen>
     <dimen name="spacing_half">8dp</dimen>
+    <dimen name="block_height">160dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

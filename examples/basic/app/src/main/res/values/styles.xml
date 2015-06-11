@@ -1,6 +1,14 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+    <style name="AppCardView" parent="CardView">
+        <item name="cardCornerRadius">0dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">0dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base">
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
@@ -8,12 +16,26 @@
         <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
     </style>
 
-    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary_dark</item>
         <item name="android:colorAccent">@color/accent</item>
+    </style>
+
+    <style name="AppButton" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">@dimen/spacing</item>
+        <item name="android:background">@color/accent</item>
+        <item name="android:textColor">@color/primary_inverted</item>
+        <item name="android:shadowColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppButtonBlank" parent="AppButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/primary</item>
     </style>
 
 </resources>

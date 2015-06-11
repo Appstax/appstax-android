@@ -19,6 +19,13 @@
         android:padding="@dimen/spacing">
 
         <EditText
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_name_hint"
+            android:inputType="textPersonName" />
+
+        <EditText
             android:id="@+id/email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -27,17 +34,31 @@
 
         <EditText
             android:id="@+id/password"
+            android:fontFamily="sans-serif"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="@string/new_password_hint"
             android:inputType="textPassword" />
 
         <Button
+            android:textAllCaps="false"
+            style="@style/AppButton"
             android:id="@+id/signup"
-            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing"
+            android:layout_marginTop="@dimen/spacing_double"
             android:text="@string/action_signup" />
+
+        <Button
+            android:textAllCaps="false"
+            style="@style/AppButtonBlank"
+            android:id="@+id/login"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_half"
+            android:text="@string/action_login" />
 
     </LinearLayout>
 

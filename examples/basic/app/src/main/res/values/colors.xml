@@ -1,5 +1,6 @@
 <resources>
     <color name="primary">#2196F3</color>
+    <color name="primary_inverted">#FFFFFF</color>
     <color name="primary_dark">#1976D2</color>
     <color name="primary_text">#FFFFFF</color>
     <color name="primary_text_dark">#212121</color>
