@@ -10,27 +10,28 @@ import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
 
-public class SignupActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup);
+        setContentView(R.layout.login);
         createToolbar();
 
-        Button signupButton = (Button) findViewById(R.id.signup);
-        signupButton.setOnClickListener(new View.OnClickListener() {
+        Button loginButton = (Button) findViewById(R.id.login);
+        loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                signup();
+                login();
             }
         });
     }
 
-    protected void signup() {
+    protected void login() {
         Appstax.signup(editTextVal(R.id.email), editTextVal(R.id.password), new Callback<AxUser>() {
             public void onSuccess(AxUser output) {
-                dialog("welcome", Appstax.getCurrentUser().getUsername());
+                dialog("welcome back", Appstax.getCurrentUser().getUsername());
             }
+
             public void onError(AxException e) {
                 dialog("error", e.getMessage());
             }

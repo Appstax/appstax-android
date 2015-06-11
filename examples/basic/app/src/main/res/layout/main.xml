@@ -12,18 +12,25 @@
         layout="@layout/toolbar" />
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:padding="@dimen/spacing">
+        android:layout_width="fill_parent"
+        android:padding="@dimen/spacing"
+        android:layout_alignParentBottom="true">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="fill_parent"
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing"
-            android:text="@string/action_sign_up" />
+            android:layout_weight="1"
+            android:text="@string/action_signup" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/action_login" />
 
     </LinearLayout>
 

@@ -2,7 +2,13 @@
     <string name="app_name">Basic</string>
     <string name="title_activity_main">Welcome</string>
     <string name="title_activity_signup">Create account</string>
-    <string name="new_email_hint">Email address</string>
+    <string name="title_activity_login">Log in</string>
+
+    <string name="action_signup">Sign up</string>
+    <string name="action_login">Log in</string>
+
+    <string name="email_hint">Your email</string>
+    <string name="password_hint">Your password</string>
+    <string name="new_email_hint">Your email</string>
     <string name="new_password_hint">Choose a password</string>
-    <string name="action_sign_up">Sign up</string>
 </resources>
