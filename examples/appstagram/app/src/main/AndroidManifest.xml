@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.appstax.basic" >
+    package="com.appstax.appstagram" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,7 +14,7 @@
         android:label="@string/title_activity_feed"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".FeedActivity"
+            android:name="com.appstax.appstagram.FeedActivity"
             android:label="@string/title_activity_feed" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name="com.appstax.appstagram.SignupActivity"
             android:label="@string/title_activity_signup" >
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.appstax.appstagram.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
     </application>

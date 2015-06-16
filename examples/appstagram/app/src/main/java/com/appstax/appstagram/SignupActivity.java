@@ -1,4 +1,4 @@
-package com.appstax.basic;
+package com.appstax.appstagram;
 
 import android.os.Bundle;
 import android.view.View;

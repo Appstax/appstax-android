@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
-    tools:context="com.appstax.basic.LoginActivity">
-     
+    tools:context="com.appstax.appstagram.SignupActivity">
+ 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -19,10 +19,17 @@
         android:padding="@dimen/spacing">
 
         <EditText
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_name_hint"
+            android:inputType="textPersonName" />
+
+        <EditText
             android:id="@+id/email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email_hint"
+            android:hint="@string/new_email_hint"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -30,28 +37,28 @@
             android:fontFamily="sans-serif"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password_hint"
+            android:hint="@string/new_password_hint"
             android:inputType="textPassword" />
 
         <Button
             android:textAllCaps="false"
             style="@style/AppButton"
-            android:id="@+id/login"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_double"
-            android:text="@string/action_login" />
-
-        <Button
-            android:textAllCaps="false"
-            style="@style/AppButtonBlank"
             android:id="@+id/signup"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_half"
+            android:layout_marginTop="@dimen/spacing_double"
             android:text="@string/action_signup" />
+
+        <Button
+            android:textAllCaps="false"
+            style="@style/AppButtonBlank"
+            android:id="@+id/login"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_half"
+            android:text="@string/action_login" />
 
     </LinearLayout>
 

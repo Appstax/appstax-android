@@ -1,4 +1,4 @@
-package com.appstax.basic;
+package com.appstax.appstagram;
 
 import android.content.ContentResolver;
 import android.content.Intent;

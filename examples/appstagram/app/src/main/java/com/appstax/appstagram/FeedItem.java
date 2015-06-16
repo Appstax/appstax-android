@@ -1,4 +1,4 @@
-package com.appstax.basic;
+package com.appstax.appstagram;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
