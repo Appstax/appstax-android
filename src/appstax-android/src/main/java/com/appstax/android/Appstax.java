@@ -18,6 +18,14 @@ public class Appstax extends Ax {
         };
     }
 
+    public static void saveAll(final AxObject object, final Callback<AxObject> callback) {
+        new Request<AxObject>(callback) {
+            protected AxObject run() {
+                return Ax.saveAll(object);
+            }
+        };
+    }
+
     public static void remove(final AxObject object, final Callback<AxObject> callback) {
         new Request<AxObject>(callback) {
             protected AxObject run() {
@@ -50,10 +58,26 @@ public class Appstax extends Ax {
         };
     }
 
+    public static void find(final String collection, final String id, final int depth, final Callback<AxObject> callback) {
+        new Request<AxObject>(callback) {
+            protected AxObject run() {
+                return Ax.find(collection, id, depth);
+            }
+        };
+    }
+
     public static void find(final String collection, final Callback<List<AxObject>> callback) {
         new Request<List<AxObject>>(callback) {
             protected List<AxObject> run() {
                 return Ax.find(collection);
+            }
+        };
+    }
+
+    public static void find(final String collection, final int depth, final Callback<List<AxObject>> callback) {
+        new Request<List<AxObject>>(callback) {
+            protected List<AxObject> run() {
+                return Ax.find(collection, depth);
             }
         };
     }

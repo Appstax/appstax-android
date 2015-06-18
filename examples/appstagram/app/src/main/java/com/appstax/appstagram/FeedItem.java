@@ -11,7 +11,6 @@ import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 
@@ -24,19 +23,12 @@ public class FeedItem {
     }
 
     public String getTitle() {
-        return object.get("title").toString();
+        return object.getString("title");
     }
 
     public String getSubtitle() {
-        String date = object.get("sysCreated").toString();
-        DateFormat source = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        DateFormat target = new SimpleDateFormat("MMMM dd @ HH:mm");
-
-        try {
-            return target.format(source.parse(date));
-        } catch (ParseException e) {
-            return "";
-        }
+        DateFormat df = new SimpleDateFormat("MMMM dd @ HH:mm");
+        return df.format(object.getCreated());
     }
 
     public void getImage(final ImageView image) {
