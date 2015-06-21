@@ -50,22 +50,6 @@ public class Appstax extends Ax {
         };
     }
 
-    public static void find(final String collection, final String id, final Callback<AxObject> callback) {
-        new Request<AxObject>(callback) {
-            protected AxObject run() {
-                return Ax.find(collection, id);
-            }
-        };
-    }
-
-    public static void find(final String collection, final String id, final int depth, final Callback<AxObject> callback) {
-        new Request<AxObject>(callback) {
-            protected AxObject run() {
-                return Ax.find(collection, id, depth);
-            }
-        };
-    }
-
     public static void find(final String collection, final Callback<List<AxObject>> callback) {
         new Request<List<AxObject>>(callback) {
             protected List<AxObject> run() {
@@ -78,6 +62,22 @@ public class Appstax extends Ax {
         new Request<List<AxObject>>(callback) {
             protected List<AxObject> run() {
                 return Ax.find(collection, depth);
+            }
+        };
+    }
+
+    public static void find(final String collection, final String id, final Callback<AxObject> callback) {
+        new Request<AxObject>(callback) {
+            protected AxObject run() {
+                return Ax.find(collection, id);
+            }
+        };
+    }
+
+    public static void find(final String collection, final String id, final int depth, final Callback<AxObject> callback) {
+        new Request<AxObject>(callback) {
+            protected AxObject run() {
+                return Ax.find(collection, id, depth);
             }
         };
     }
@@ -119,22 +119,6 @@ public class Appstax extends Ax {
             protected Void run() {
                 Ax.logout();
                 return null;
-            }
-        };
-    }
-
-    public static void save(final AxUser user, final Callback<AxUser> callback) {
-        new Request<AxUser>(callback) {
-            protected AxUser run() {
-                return Ax.save(user);
-            }
-        };
-    }
-
-    public static void refresh(final AxUser user, final Callback<AxUser> callback) {
-        new Request<AxUser>(callback) {
-            protected AxUser run() {
-                return Ax.refresh(user);
             }
         };
     }

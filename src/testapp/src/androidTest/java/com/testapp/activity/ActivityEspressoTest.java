@@ -71,6 +71,18 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
         });
     }
 
+    public void testObjectFind() {
+        Appstax.find(COLLECTION, 123, new Callback<List<AxObject>>() {
+            public void onSuccess(List<AxObject> output) {
+                assertTrue(false);
+            }
+
+            public void onError(AxException e) {
+                assertTrue(e.getMessage().startsWith("Not authorized."));
+            }
+        });
+    }
+
     public void testObjectRemove() {
         Appstax.remove(new AxObject(COLLECTION), new Callback<AxObject>() {
             public void onSuccess(AxObject output) {

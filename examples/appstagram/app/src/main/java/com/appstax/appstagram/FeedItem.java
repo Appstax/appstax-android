@@ -23,7 +23,7 @@ public class FeedItem {
     }
 
     public String getTitle() {
-        return object.getString("title");
+        return this.object.getObject("user").getString("name");
     }
 
     public String getSubtitle() {

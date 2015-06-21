@@ -96,7 +96,7 @@ public class FeedActivity extends BaseActivity {
         items.clear();
         recyclerAdapter.notifyDataSetChanged();
 
-        Appstax.find(ITEM_COLLECTION, new Callback<List<AxObject>>() {
+        Appstax.find(ITEM_COLLECTION, 1, new Callback<List<AxObject>>() {
             public void onSuccess(List<AxObject> output) {
                 for (AxObject object : output) {
                     items.add(new FeedItem(object));
@@ -108,6 +108,7 @@ public class FeedActivity extends BaseActivity {
                 dialog("error", e.getMessage());
             }
         });
+
     }
 
     protected void takePicture() {
@@ -127,8 +128,9 @@ public class FeedActivity extends BaseActivity {
 
         String file = UUID.randomUUID().toString() + ".jpg";
         AxObject object = new AxObject(ITEM_COLLECTION);
+
         object.put("image", new AxFile(file, uriToByteArray(this.output)));
-        object.put("title", Appstax.getCurrentUser().get("name"));
+        object.createRelation("user", Appstax.getCurrentUser());
 
         Appstax.save(object, new Callback<AxObject>() {
             public void onSuccess(AxObject output) {
