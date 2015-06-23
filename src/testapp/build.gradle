@@ -13,7 +13,7 @@ android {
         exclude 'LICENSE.txt'
     }
     lintOptions {
-        disable 'InvalidPackage'
+        disable 'InvalidPackage', 'OldTargetApi'
     }
 }
 
