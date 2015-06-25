@@ -31,18 +31,10 @@ abstract class BaseActivity extends AppCompatActivity {
 
     protected void dialog(String title, String message) {
         new AlertDialog.Builder(this)
-                .setTitle(title)
-                .setMessage(message)
-                .setCancelable(true)
-                .create().show();
-    }
-
-    protected void showLoading() {
-        progress = ProgressDialog.show(this, null, null, true);
-    }
-
-    protected void hideLoading() {
-        progress.dismiss();
+            .setTitle(title)
+            .setMessage(message)
+            .setCancelable(true)
+            .create().show();
     }
 
     protected void setToolbar() {
@@ -66,18 +58,18 @@ abstract class BaseActivity extends AppCompatActivity {
 
     protected void saveLoginInfo(String email, String password) {
         getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-                .edit()
-                .putString(PREF_EMAIL, email)
-                .putString(PREF_PASSWORD, password)
-                .commit();
+            .edit()
+            .putString(PREF_EMAIL, email)
+            .putString(PREF_PASSWORD, password)
+            .commit();
     }
 
     protected void clearLoginInfo() {
         getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-                .edit()
-                .remove(PREF_EMAIL)
-                .remove(PREF_PASSWORD)
-                .commit();
+            .edit()
+            .remove(PREF_EMAIL)
+            .remove(PREF_PASSWORD)
+            .commit();
     }
 
 }

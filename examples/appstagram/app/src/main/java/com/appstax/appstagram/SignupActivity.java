@@ -23,8 +23,8 @@ public class SignupActivity extends BaseActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signup(
-                        editTextVal(R.id.email),
-                        editTextVal(R.id.password)
+                    editTextVal(R.id.email),
+                    editTextVal(R.id.password)
                 );
             }
         });

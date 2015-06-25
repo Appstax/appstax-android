@@ -28,8 +28,8 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 login(
-                        editTextVal(R.id.email),
-                        editTextVal(R.id.password)
+                    editTextVal(R.id.email),
+                    editTextVal(R.id.password)
                 );
             }
         });

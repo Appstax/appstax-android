@@ -43,6 +43,7 @@ public class FeedItem {
             public void onSuccess(AxFile output) {
                 setData(image, output.getData());
             }
+
             public void onError(AxException e) {
                 e.printStackTrace();
             }

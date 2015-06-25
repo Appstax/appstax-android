@@ -124,8 +124,6 @@ public class FeedActivity extends BaseActivity {
             return;
         }
 
-        showLoading();
-
         String file = UUID.randomUUID().toString() + ".jpg";
         AxObject object = new AxObject(ITEM_COLLECTION);
 
@@ -134,11 +132,10 @@ public class FeedActivity extends BaseActivity {
 
         Appstax.save(object, new Callback<AxObject>() {
             public void onSuccess(AxObject output) {
-                hideLoading();
                 refresh();
             }
+
             public void onError(AxException e) {
-                hideLoading();
                 dialog("error", e.getMessage());
             }
         });
