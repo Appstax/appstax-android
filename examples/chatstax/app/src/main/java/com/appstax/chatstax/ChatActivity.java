@@ -42,11 +42,11 @@ public class ChatActivity extends AppCompatActivity {
         channel = ax.channel("public/chat", new AxListener() {
 
             public void onOpen() {
-                add(create("open"));
+                add(create("Welcome to the chat!"));
             }
 
             public void onClose() {
-                add(create("close"));
+                add(create("You lost the connection."));
             }
 
             public void onMessage(AxEvent event) {
@@ -54,7 +54,7 @@ public class ChatActivity extends AppCompatActivity {
             }
 
             public void onError(Exception e) {
-                add(create("error"));
+                add(create("Something went wrong."));
                 e.printStackTrace();
             }
 
