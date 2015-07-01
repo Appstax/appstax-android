@@ -6,7 +6,6 @@ import android.widget.Button;
 
 import com.appstax.AxException;
 import com.appstax.AxUser;
-import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
 
@@ -38,7 +37,7 @@ public class SignupActivity extends BaseActivity {
     }
 
     protected void signup(String email, String password) {
-        Appstax.signup(email, password, new Callback<AxUser>() {
+        ax.signup(email, password, new Callback<AxUser>() {
             public void onSuccess(AxUser user) {
                 saveName(user, editTextVal(R.id.name));
                 startActivity(FeedActivity.class);
@@ -51,7 +50,7 @@ public class SignupActivity extends BaseActivity {
 
     protected void saveName(AxUser user, String name) {
         user.put("name", name);
-        Appstax.save(user, null);
+        ax.save(user, null);
     }
 
 }

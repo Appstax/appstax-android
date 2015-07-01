@@ -24,13 +24,13 @@ This assumes you're using the standard jcenter repository.
 ## Usage example
 
 ```java
-Appstax.setAppKey("YourAppKey");
+Appstax ax = new Appstax("key");
 
-AxObject object = new AxObject("Contacts");
+AxObject object = ax.object("Contacts");
 object.put("name", "Foo McBar");
 object.put("email", "foo@example.com");
 
-Appstax.save(object, new Callback<AxObject>() {
+ax.save(object, new Callback<AxObject>() {
     public void onSuccess(AxObject object) {
         showMessage("saved", object.get("name"));
     }

@@ -7,7 +7,6 @@ import android.widget.Button;
 
 import com.appstax.AxException;
 import com.appstax.AxUser;
-import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
 
@@ -57,7 +56,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     protected void login(final String email, final String password) {
-        Appstax.login(email, password, new Callback<AxUser>() {
+        ax.login(email, password, new Callback<AxUser>() {
             public void onSuccess(AxUser output) {
                 saveLoginInfo(email, password);
                 startActivity(FeedActivity.class);

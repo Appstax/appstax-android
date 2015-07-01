@@ -1,0 +1,54 @@
+<resources>
+
+    <style name="AppCardView" parent="CardView">
+        <item name="cardBackgroundColor">@color/primary_light</item>
+        <item name="cardCornerRadius">0dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">@dimen/spacing_half</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <style name="AppItemTitle">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppItemSubtitle">
+        <item name="android:textColor">@color/primary_text_fade</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorBackground">@color/primary</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="AppButton" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@color/primary_light</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:shadowColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppEditText" parent="AppButton">
+        <item name="android:background">@color/window_background</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:paddingLeft">@dimen/spacing</item>
+        <item name="android:paddingRight">@dimen/spacing</item>
+    </style>
+
+</resources>

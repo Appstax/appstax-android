@@ -1,0 +1,11 @@
+<resources>
+    <color name="primary">#ffffff</color>
+    <color name="primary_inverted">#1a1a1a</color>
+    <color name="primary_dark">#00BCD4</color>
+    <color name="primary_light">#f9f9f9</color>
+    <color name="primary_text">#1a1a1a</color>
+    <color name="primary_text_fade">#c9c9c9</color>
+    <color name="primary_text_inverted">#FFFFFF</color>
+    <color name="window_background">#FFFFFF</color>
+    <color name="accent">#00BCD4</color>
+</resources>

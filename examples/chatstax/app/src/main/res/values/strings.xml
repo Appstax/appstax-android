@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">chatstax</string>
+    <string name="chat_hint">What\'s up?</string>
+    <string name="submit">Send</string>
+</resources>

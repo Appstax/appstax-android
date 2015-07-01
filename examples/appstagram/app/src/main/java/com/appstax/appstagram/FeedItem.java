@@ -16,9 +16,11 @@ import java.text.SimpleDateFormat;
 
 public class FeedItem {
 
+    private Appstax ax;
     private AxObject object;
 
-    FeedItem(AxObject object) {
+    FeedItem(Appstax ax, AxObject object) {
+        this.ax = ax;
         this.object = object;
     }
 
@@ -39,7 +41,7 @@ public class FeedItem {
             return;
         }
 
-        Appstax.load(file, new Callback<AxFile>() {
+        ax.load(file, new Callback<AxFile>() {
             public void onSuccess(AxFile output) {
                 setData(image, output.getData());
             }

@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.1.1"
+version = "1.2.0"
 group = "com.appstax"
 
 def projectName = "appstax-android"
@@ -24,10 +24,9 @@ android {
         }
     }
     lintOptions {
-        disable 'InvalidPackage'
+        disable 'InvalidPackage', 'OldTargetApi'
     }
-    buildTypes {
-    }
+    buildTypes {}
 }
 
 install {
@@ -61,7 +60,7 @@ install {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile('com.appstax:appstax-java:1.1.1') {
+    compile('com.appstax:appstax-java:1.2.0-SNAPSHOT') {
         exclude group: 'org.json', module: 'json'
     }
 }

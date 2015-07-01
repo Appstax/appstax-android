@@ -8,14 +8,14 @@ import com.appstax.android.Appstax;
 
 public class MainActivity extends Activity {
 
-    protected static final String APPSTAX_KEY = "YourAppKey";
+    private Appstax ax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Appstax.setAppKey(APPSTAX_KEY);
+        ax = new Appstax("key");
     }
 
 }

@@ -14,9 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.appstax.AxException;
-import com.appstax.AxFile;
 import com.appstax.AxObject;
-import com.appstax.android.Appstax;
 import com.appstax.android.Callback;
 
 import java.io.ByteArrayOutputStream;
@@ -47,7 +45,7 @@ public class FeedActivity extends BaseActivity {
         setToolbar();
 
         // Users have to log in first.
-        if (Appstax.getCurrentUser() == null) {
+        if (ax.getCurrentUser() == null) {
             startActivity(LoginActivity.class);
             return;
         }
@@ -96,10 +94,10 @@ public class FeedActivity extends BaseActivity {
         items.clear();
         recyclerAdapter.notifyDataSetChanged();
 
-        Appstax.find(ITEM_COLLECTION, 1, new Callback<List<AxObject>>() {
+        ax.find(COLLECTION, 1, new Callback<List<AxObject>>() {
             public void onSuccess(List<AxObject> output) {
                 for (AxObject object : output) {
-                    items.add(new FeedItem(object));
+                    items.add(new FeedItem(ax, object));
                 }
                 recyclerAdapter.notifyDataSetChanged();
             }
@@ -125,12 +123,12 @@ public class FeedActivity extends BaseActivity {
         }
 
         String file = UUID.randomUUID().toString() + ".jpg";
-        AxObject object = new AxObject(ITEM_COLLECTION);
+        AxObject object = ax.object(COLLECTION);
 
-        object.put("image", new AxFile(file, uriToByteArray(this.output)));
-        object.createRelation("user", Appstax.getCurrentUser());
+        object.put("image", ax.file(file, uriToByteArray(this.output)));
+        object.createRelation("user", ax.getCurrentUser());
 
-        Appstax.save(object, new Callback<AxObject>() {
+        ax.save(object, new Callback<AxObject>() {
             public void onSuccess(AxObject output) {
                 refresh();
             }
