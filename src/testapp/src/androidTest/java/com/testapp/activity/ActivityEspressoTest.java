@@ -3,7 +3,6 @@ package com.testapp.activity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.appstax.AxException;
 import com.appstax.AxFile;
 import com.appstax.AxListener;
 import com.appstax.AxObject;
@@ -61,7 +60,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 assertNotNull(e);
             }
         });
@@ -72,7 +71,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(List<AxObject> output) {
                 assertTrue(false);
             }
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 assertNotNull(e);
             }
         });
@@ -83,7 +82,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 assertNotNull(e);
             }
         });
@@ -94,7 +93,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(List<AxObject> output) {
                 assertTrue(false);
             }
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 assertNotNull(e);
             }
         });

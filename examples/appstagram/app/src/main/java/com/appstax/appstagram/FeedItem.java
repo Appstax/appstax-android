@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
-import com.appstax.AxException;
 import com.appstax.AxFile;
 import com.appstax.AxObject;
 import com.appstax.android.Appstax;
@@ -46,7 +45,7 @@ public class FeedItem {
                 setData(image, output.getData());
             }
 
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 e.printStackTrace();
             }
         });

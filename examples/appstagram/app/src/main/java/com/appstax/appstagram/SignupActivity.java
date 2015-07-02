@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.appstax.AxException;
 import com.appstax.AxUser;
 import com.appstax.android.Callback;
 
@@ -42,7 +41,7 @@ public class SignupActivity extends BaseActivity {
                 saveName(user, editTextVal(R.id.name));
                 startActivity(FeedActivity.class);
             }
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 dialog("error", e.getMessage());
             }
         });

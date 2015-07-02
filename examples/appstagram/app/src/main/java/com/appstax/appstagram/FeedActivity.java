@@ -13,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.appstax.AxException;
 import com.appstax.AxObject;
 import com.appstax.android.Callback;
 
@@ -102,7 +101,7 @@ public class FeedActivity extends BaseActivity {
                 recyclerAdapter.notifyDataSetChanged();
             }
 
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 dialog("error", e.getMessage());
             }
         });
@@ -133,7 +132,7 @@ public class FeedActivity extends BaseActivity {
                 refresh();
             }
 
-            public void onError(AxException e) {
+            public void onError(Exception e) {
                 dialog("error", e.getMessage());
             }
         });
