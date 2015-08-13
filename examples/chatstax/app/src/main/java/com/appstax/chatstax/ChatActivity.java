@@ -97,9 +97,11 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     protected void add(AxObject object) {
-        items.add(object);
-        recyclerAdapter.notifyDataSetChanged();
-        recyclerView.scrollToPosition(items.size() - 1);
+        if (object != null) {
+            items.add(object);
+            recyclerAdapter.notifyDataSetChanged();
+            recyclerView.scrollToPosition(items.size() - 1);
+        }
     }
 
     protected String editTextVal(int id) {
