@@ -5,7 +5,7 @@
 
 This is the official Android SDK for [Appstax](https://appstax.com).
 
-It's a work in progress, and not ready for use quite yet.
+It's a new SDK, so let us know if you encounter any issues.
 
 Check out the [Android SDK Guide](https://appstax.com/docs/Android-Guide/) to get started.
 
