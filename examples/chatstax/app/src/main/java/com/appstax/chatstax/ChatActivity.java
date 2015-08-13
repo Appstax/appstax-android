@@ -28,7 +28,6 @@ public class ChatActivity extends AppCompatActivity {
     private List<AxObject> items;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerAdapter;
-    private RecyclerView.LayoutManager recyclerManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +65,7 @@ public class ChatActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         recyclerView.setHasFixedSize(true);
-
-        recyclerManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(recyclerManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerAdapter = new ChatAdapter(items);
         recyclerView.setAdapter(recyclerAdapter);
