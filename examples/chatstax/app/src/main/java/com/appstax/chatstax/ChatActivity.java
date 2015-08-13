@@ -93,12 +93,18 @@ public class ChatActivity extends AppCompatActivity {
         return object;
     }
 
-    protected void add(AxObject object) {
-        if (object != null) {
-            items.add(object);
-            recyclerAdapter.notifyDataSetChanged();
-            recyclerView.scrollToPosition(items.size() - 1);
+    protected void add(final AxObject object) {
+        if (object == null) {
+            return;
         }
+
+        runOnUiThread(new Runnable() {
+            public void run() {
+                items.add(object);
+                recyclerAdapter.notifyDataSetChanged();
+                recyclerView.scrollToPosition(items.size() - 1);
+            }
+        });
     }
 
     protected String editTextVal(int id) {
