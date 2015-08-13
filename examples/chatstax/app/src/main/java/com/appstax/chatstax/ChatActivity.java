@@ -38,7 +38,7 @@ public class ChatActivity extends AppCompatActivity {
 
         ax = new Appstax(APPSTAX_KEY, APPSTAX_URL);
 
-        channel = ax.channel("public/chat", new AxListener() {
+        channel = ax.channel("public/chat").listen(new AxListener() {
 
             public void onOpen() {
                 add(create("Welcome to the chat!"));

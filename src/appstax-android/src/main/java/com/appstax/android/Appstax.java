@@ -3,7 +3,6 @@ package com.appstax.android;
 import com.appstax.Ax;
 import com.appstax.AxChannel;
 import com.appstax.AxFile;
-import com.appstax.AxListener;
 import com.appstax.AxObject;
 import com.appstax.AxUser;
 
@@ -20,8 +19,8 @@ public class Appstax extends Ax {
         super(key, url);
     }
 
-    public AxChannel channel(String name, AxListener listener) {
-        return super.channel(name, new Listener(listener));
+    public AxChannel channel(String name) {
+        return super.channel(name);
     }
 
     public void save(final AxObject object, final Callback<AxObject> callback) {

@@ -52,7 +52,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
     }
 
     public void testChannel() {
-        ax.channel("public/foo", new AxListener() {});
+        ax.channel("public/foo").listen(new AxListener() {});
     }
 
     public void testSave() {
