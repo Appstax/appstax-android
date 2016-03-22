@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/Appstax/appstax-android.svg?branch=master)](https://travis-ci.org/Appstax/appstax-android)
 [![Download](https://api.bintray.com/packages/appstax/maven/appstax-android/images/download.svg) ](https://bintray.com/appstax/maven/appstax-android/_latestVersion)
 
-This is the official Android SDK for [Appstax](https://appstax.com).
+This is the official Android SDK for [AppStax](https://appstax.com).
 
 It's a new SDK, so let us know if you encounter any issues.
 
-Check out the [Android SDK Guide](https://appstax.com/docs/Android-Guide/) to get started.
+Check out the [Android SDK Guide](https://appstax.com/docs/android-guide.html) to get started.
 
 ## Installation with Gradle
 
