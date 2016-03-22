@@ -9,8 +9,8 @@ git:
   depth: 10
 android:
   components:
-    - build-tools-22.0.1
-    - android-19
+    - build-tools-23.0.2
+    - android-23
     - sys-img-armeabi-v7a-android-19
 branches:
   only:
