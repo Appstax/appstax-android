@@ -13,6 +13,8 @@ git:
   depth: 10
 android:
   components:
+    - tools
+    - platform-tools
     - build-tools-23.0.1
     - android-23
     - sys-img-armeabi-v7a-android-19
