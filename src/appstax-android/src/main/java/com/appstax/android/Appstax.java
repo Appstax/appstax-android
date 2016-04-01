@@ -191,4 +191,27 @@ public class Appstax extends Ax {
         };
     }
 
+    /**
+     * Send password reset email
+     */
+    public void requestPasswordReset(final String email, final Callback<Void> callback) {
+        new Request<Void>(callback) {
+            protected Void run() {
+                requestPasswordReset(email);
+                return null;
+            }
+        };
+    }
+
+    /**
+     * Change password with reset code
+     */
+    public void changePassword(final String username, final String password, final String code, final boolean login, final Callback<AxUser> callback) {
+        new Request<AxUser>(callback) {
+            protected AxUser run() {
+                return changePassword(username, password, code, login);
+            }
+        };
+    }
+
 }
