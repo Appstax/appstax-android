@@ -52,7 +52,8 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
     }
 
     public void testChannel() {
-        ax.channel("public/foo").listen(new AxListener() {});
+        ax.channel("public/foo").listen(new AxListener() {
+        });
     }
 
     public void testSave() {
@@ -60,6 +61,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
+
             public void onError(Exception e) {
                 assertNotNull(e);
             }
@@ -71,6 +73,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(List<AxObject> output) {
                 assertTrue(false);
             }
+
             public void onError(Exception e) {
                 assertNotNull(e);
             }
@@ -82,6 +85,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(AxObject output) {
                 assertTrue(false);
             }
+
             public void onError(Exception e) {
                 assertNotNull(e);
             }
@@ -93,6 +97,7 @@ public class ActivityEspressoTest extends ActivityInstrumentationTestCase2<Activ
             public void onSuccess(List<AxObject> output) {
                 assertTrue(false);
             }
+
             public void onError(Exception e) {
                 assertNotNull(e);
             }

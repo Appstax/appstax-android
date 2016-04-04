@@ -1,6 +1,11 @@
 package com.appstax.android;
 
+import android.app.Activity;
+import android.util.Log;
+
 import com.appstax.Ax;
+import com.appstax.AxAuthConfig;
+import com.appstax.AxAuthResult;
 import com.appstax.AxChannel;
 import com.appstax.AxFile;
 import com.appstax.AxObject;
@@ -175,6 +180,43 @@ public class Appstax extends Ax {
         new Request<AxUser>(callback) {
             protected AxUser run() {
                 return login(username, password);
+            }
+        };
+    }
+
+    /**
+     * Log in with a third party auth provider
+     */
+    public void loginWithProvider(final String provider, final Activity activity, final Callback<AxUser> callback) {
+        final AuthDialog dialog = new AuthDialog();
+        new Request<Void>(null) {
+            @Override
+            protected Void run() {
+                AxAuthConfig config = getAuthConfig(provider);
+                dialog.run(config, activity.getFragmentManager(), new Callback<AxAuthResult>() {
+                    @Override
+                    public void onSuccess(AxAuthResult authResult) {
+                        loginWithProvider(provider, authResult, callback);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        callback.onError(e);
+                    }
+                });
+                return null;
+            }
+        };
+    }
+
+    /**
+     * Log in with auth code from a third party auth provider
+     */
+    private void loginWithProvider(final String provider, final AxAuthResult result, Callback<AxUser> callback) {
+        new Request<AxUser>(callback) {
+            @Override
+            protected AxUser run() {
+                return loginWithProvider(provider, result);
             }
         };
     }
