@@ -61,7 +61,7 @@ install {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile('com.appstax:appstax-java:1.2.1-SNAPSHOT') {
+    compile('com.appstax:appstax-java:1.2.1') {
         exclude group: 'org.json', module: 'json'
     }
 }
